@@ -1,4 +1,4 @@
-package Day02;
+package day02;
 
 import java.util.Scanner;
 
@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = 0;
-
         while (true) {
             n = input.nextInt();
             if (n == 0) {
@@ -31,7 +30,6 @@ public class Main {
                 if (n == 0 || n == 1) {
                     break;
                 }
-
             }
             System.out.println(num);
         }
