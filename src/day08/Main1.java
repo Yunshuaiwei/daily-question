@@ -36,5 +36,4 @@ public class Main1 {
             k--;
         }
     }
-
 }

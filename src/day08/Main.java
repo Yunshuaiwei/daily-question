@@ -1,5 +1,6 @@
 package day08;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,30 +12,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
-        int[] mark = new int[n];
-        for (int i = 0; i < n; i++) {
-            mark[i] = 0;
-        }
-        input.close();
-        int flag = n;
-        int index = -1;
-        int m = 3;
-        do {
-            while (m != 0) {
-                index = (index + 1) % n;
-                if (mark[index] == 0) {
-                    m--;
-                }
+        ArrayList<Integer> list = new ArrayList<>();
+        while (input.hasNext()) {
+            int n = input.nextInt();
+            if (n > 1000) {
+                n = 999;
             }
-            mark[index] = 1;
-            flag--;
-            m = 3;
-        } while (flag != 1);
-        for (int i = 0; i < mark.length; i++) {
-            if (mark[i] == 0) {
-                System.out.println(i);
+            for (int i = 0; i < n; i++) {
+                list.add(i);
             }
+            int index = 0;
+            while (list.size() != 1) {
+                index = (index + 2) % list.size();
+                list.remove(index);
+            }
+            System.out.println(list.remove(0));
         }
     }
 }
