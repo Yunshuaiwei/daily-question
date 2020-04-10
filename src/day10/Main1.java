@@ -16,7 +16,6 @@ public class Main1 {
         a[0] = 0;
         a[1] = 1;
         while (true) {
-            int n1 = n - a[1];
             a[2] = a[0] + a[1];
             a[0] = a[1];
             a[1] = a[2];
