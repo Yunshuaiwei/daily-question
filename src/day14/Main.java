@@ -11,12 +11,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
-        Main main = new Main();
-        System.out.println(main.getSequeOddNum(num));
+        Main m = new Main();
+        while (input.hasNextInt()) {
+            int num = input.nextInt();
+            String str = m.GetSequeOddNum(num);
+            System.out.println(str);
+        }
     }
 
-    public String getSequeOddNum(int m) {
+    public String GetSequeOddNum(int m) {
         int num = getFirstNum(m);
         String str = "";
         str += num;
