@@ -12,28 +12,33 @@ import java.util.Scanner;
 public class Main1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        while(true){
-            int N=input.nextInt();
-            if(N==0){
+        while (true) {
+            int N = input.nextInt();
+            if (N == 0) {
                 break;
             }
             HashMap<Integer, Integer> map = new HashMap<>();
             for (int i = 0; i < N; i++) {
-                int n=input.nextInt();
-                if(map.containsKey(n)){
+                int n = input.nextInt();
+                if (map.containsKey(n)) {
                     Integer val = map.get(n);
-                    map.replace(n,val,++val);
-                }else{
-                    map.put(n,1);
+                    map.replace(n, val, ++val);
+                } else {
+                    map.put(n, 1);
                 }
             }
-            int target=input.nextInt();
+            int target = input.nextInt();
+            int size=map.size();
             for (Integer key : map.keySet()) {
-                if(target==key){
+                if (target == key) {
                     System.out.println(map.get(key));
+                    break;
                 }
+                size--;
             }
-
+            if(size==0){
+                System.out.println(0);
+            }
         }
     }
 }

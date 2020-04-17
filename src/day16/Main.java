@@ -12,7 +12,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int T = input.nextInt();
-        while (T > 0) {
+        int N=T;
+        while (input.hasNext()) {
             int n = input.nextInt();
             int k = input.nextInt();
             int[] arr = new int[2 * n];
@@ -20,7 +21,17 @@ public class Main {
                 arr[i] = input.nextInt();
             }
             int[] ints = shuffle(arr, k);
-            print(ints, T);
+            if(N==T){
+                System.out.print(ints[0]);
+                for (int i = 1; i < ints.length; i++) {
+                    System.out.print(" "+ints[i]);
+                }
+                T--;
+                continue;
+            }
+            for (int i = 0; i < ints.length; i++) {
+                System.out.print(" "+ints[i]);
+            }
             T--;
         }
     }
@@ -49,20 +60,5 @@ public class Main {
         }
         return arr;
     }
-
-    /**
-     * 打印
-     *
-     * @return void
-     * @Param [ints, k]
-     **/
-    public static void print(int[] ints, int k) {
-        for (int i = 0; i < ints.length; i++) {
-            if (k == 1 && i == ints.length - 1) {
-                System.out.print(ints[i]);
-            } else {
-                System.out.print(ints[i] + " ");
-            }
-        }
-    }
 }
+
