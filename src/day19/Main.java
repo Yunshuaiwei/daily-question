@@ -11,40 +11,41 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
-        int flag = input.nextInt();
-        HashMap<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < num; i++) {
-            String key = input.next();
-            int val = input.nextInt();
-            map.put(key, val);
-        }
-
-        HashMap<String, Integer> m = sortHashmap(map, flag);
-        for (Map.Entry<String, Integer> entry : m.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+        while (input.hasNext()) {
+            int num = input.nextInt();
+            int flag = input.nextInt();
+            ArrayList<User> list = new ArrayList<>();
+            for (int i = 0; i < num; i++) {
+                list.add(new User(input.next(), input.nextInt()));
+            }
+            if (flag == 0) {
+                list.sort(new Comparator<User>() {
+                    @Override
+                    public int compare(User o1, User o2) {
+                        return o2.score - o1.score;
+                    }
+                });
+            } else {
+                list.sort(new Comparator<User>() {
+                    @Override
+                    public int compare(User o1, User o2) {
+                        return o1.score - o2.score;
+                    }
+                });
+            }
+            for (User user : list) {
+                System.out.println(user.name + " " + user.score);
+            }
         }
     }
+}
 
-    public static HashMap<String, Integer> sortHashmap(HashMap<String, Integer> map, int flag) {
-        Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
-        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(entrySet);
+class User {
+    public String name;
+    public int score;
 
-        list.sort(new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                if (flag == 0) {
-                    return o2.getValue() - o1.getValue();
-
-                } else {
-                    return o1.getValue() - o2.getValue();
-                }
-            }
-        });
-        HashMap<String, Integer> result = new LinkedHashMap<>();
-        for (Map.Entry<String, Integer> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
-        }
-        return result;
+    public User(String name, int score) {
+        this.name = name;
+        this.score = score;
     }
 }

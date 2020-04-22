@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Main1 {
     public static void main(String[] args) {
         Main1 m = new Main1();
-        String[] p = {"a", "b", "c", "d"};
+        String[] p = {"ab", "b", "c", "d"};
 
         boolean[] str = m.chkSubStr(p, 4, "abc");
         System.out.println(Arrays.toString(str));
@@ -39,7 +39,7 @@ public class Main1 {
     }
 
     public boolean subString(String str, String s, int begin, int end) {
-        if (end >= s.length()) {
+        if (end > s.length()) {
             return false;
         }
         String a = "";
