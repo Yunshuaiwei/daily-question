@@ -8,6 +8,7 @@ package day20;
  **/
 public class Main1 {
 }
+
 class ListNode {
     int val;
     ListNode next = null;
@@ -16,33 +17,42 @@ class ListNode {
         this.val = val;
     }
 }
+
 class Partition {
     public ListNode partition(ListNode pHead, int x) {
         // write code here
-        ListNode cur=pHead;
-        ListNode left=null;
-        ListNode right=null;
-        while(cur!=null){
-            if(cur.val<x){
+        ListNode cur = pHead;
+        ListNode left = null;
+        ListNode l = null;
+        ListNode right = null;
+        ListNode r = null;
+        while (cur != null) {
+            if (cur.val < x) {
                 ListNode node1 = new ListNode(cur.val);
-                if(left==null){
-                    left=node1;
-                }else{
-                    left.next=node1;
+                if (left == null) {
+                    left = node1;
+                    l = node1;
+                } else {
+                    l.next = node1;
+                    l = l.next;
                 }
-            }else{
+            } else {
                 ListNode node2 = new ListNode(cur.val);
-                if(right==null){
-                    right=node2;
-                }else{
-                    right.next=node2;
+                if (right == null) {
+                    right = node2;
+                    r = node2;
+                } else {
+                    r.next = node2;
+                    r = r.next;
                 }
             }
-            cur=cur.next;
+            cur = cur.next;
         }
-        if(left!=null){
-
+        if (left != null) {
+            l.next = right;
+        } else {
+            return right;
         }
-        return null;
+        return left;
     }
 }
