@@ -118,10 +118,12 @@ public class Main1 {
         }
         return pre;
     }
+
     /**
      * 单链表整数求和
-     * @Param [a, b]
+     *
      * @return day22.ListNode
+     * @Param [a, b]
      **/
     public ListNode plusAB1(ListNode a, ListNode b) {
         // write code here
@@ -184,8 +186,6 @@ public class Main1 {
         }
         return pnode;
     }
-
-
 }
 
 class ListNode {
