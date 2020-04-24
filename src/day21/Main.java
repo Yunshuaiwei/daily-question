@@ -15,7 +15,6 @@ public class Main {
             int i = input.nextInt();
             System.out.println(Main.getTotalCount(i));
         }
-
     }
 
     public static int getTotalCount(int monthCount) {
