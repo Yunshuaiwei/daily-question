@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         HashSet<String> set = new HashSet<>();
-        while(input.hasNext()){
+        while (input.hasNext()) {
             String line = input.nextLine();
             String[] s = line.split(" ");
             for (int i = 0; i < s.length; i++) {
